@@ -112,6 +112,16 @@ strong {
     color: var(--text-primary);
 }
 
+a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--text-primary);
+}
+
 code {
     font-family: var(--font-mono);
     background: var(--bg-card);
@@ -386,16 +396,6 @@ footer p {
     margin-top: 16px;
 }
 
-.footer-links a {
-    color: var(--accent-blue);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.footer-links a:hover {
-    color: var(--text-primary);
-}
-
 .footer-links .separator {
     margin: 0 12px;
     color: var(--border-color);
@@ -403,16 +403,6 @@ footer p {
 
 .footer-links .sponsor {
     color: var(--text-muted);
-}
-
-.footer-links .sponsor a {
-    color: var(--accent-blue);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.footer-links .sponsor a:hover {
-    color: var(--text-primary);
 }
 
 /* Responsive */
