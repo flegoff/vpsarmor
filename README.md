@@ -1,12 +1,10 @@
 # [VPS Armor](https://vpsarmor.com)
 
-Basic security hardening for Ubuntu LTS and Debian Stable servers.
+The security boilerplate for Ubuntu LTS and Debian Stable servers.
 
-More and more indie hackers are jumping into VPS from hosts like OVHCloud and Hetzner. That's fantastic! One should be able to host their own services and escape the merchants of complexity (to quote DHH).
+Just like you'd use a SaaS boilerplate to skip setting up auth and payments, use VPS Armor to skip the security basics every sysadmin does manually. One command. Five layers of protection.
 
-But it's a scary world out there. If you are new to hosting your own services, you might quickly expose a DB over the internet or make other mistakes that all system administrators have made.
-
-VPSArmor.com aims to offer a free and fast boilerplate for basic VPS system hygiene.
+More indie hackers are spinning up VPS instances on [OVHCloud](https://www.ovhcloud.com/en/vps/), [Hetzner](https://www.hetzner.com/cloud/), and [DigitalOcean](https://www.digitalocean.com/products/droplets). That's fantastic—everyone should be able to self-host and escape the merchants of complexity (to quote DHH). But a fresh VPS is a blank canvas with no guardrails. VPS Armor gives you the sensible defaults.
 
 At this time, we encourage users to use a current and supported stable (Debian) or LTS (Ubuntu) version. We welcome patches and pull requests. One philosophy: KISS.
 
