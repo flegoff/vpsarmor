@@ -2,6 +2,14 @@
 
 Basic security hardening for Ubuntu LTS and Debian Stable servers.
 
+More and more indie hackers are jumping into VPS from hosts like OVHCloud and Hetzner. That's fantastic! One should be able to host their own services and escape the merchants of complexity (to quote DHH).
+
+But it's a scary world out there. If you are new to hosting your own services, you might quickly expose a DB over the internet or make other mistakes that all system administrators have made.
+
+VPSArmor.com aims to offer a free and fast boilerplate for basic VPS system hygiene.
+
+At this time, we encourage users to use a current and supported stable (Debian) or LTS (Ubuntu) version. We welcome patches and pull requests. One philosophy: KISS.
+
 ## Usage
 
 ```bash
@@ -14,7 +22,7 @@ curl -sSL https://raw.githubusercontent.com/flegoff/vpsarmor/main/armor.sh | sud
 2. **Updates packages** - Runs `apt update` and `apt dist-upgrade`
 3. **Enables unattended-upgrades** - Automatic security patches
 4. **Installs fail2ban** - Blocks brute-force attempts
-5. **Configures UFW** - Firewall allowing only ports 22, 80, 443
+5. **Configures UFW** - Firewall allowing only ports 22, 80, and 443
 
 ## Opening additional ports
 
