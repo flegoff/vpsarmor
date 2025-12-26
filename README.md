@@ -1,4 +1,4 @@
-# VPS Armor
+# [VPS Armor](https://vpsarmor.com)
 
 Basic security hardening for Ubuntu LTS and Debian Stable servers.
 
@@ -27,6 +27,10 @@ ufw allow 3000/tcp
 - Root access (or sudo)
 - Ubuntu LTS or Debian Stable
 - Fresh VPS recommended for first run
+
+## Sponsors
+
+- [DMARCTrust](https://www.dmarctrust.com)
 
 ## License
 

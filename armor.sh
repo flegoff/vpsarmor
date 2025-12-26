@@ -72,13 +72,6 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y -qq \
     fail2ban \
     ufw
 
-# Configure unattended-upgrades
-echo ""
-echo "🤖 Enabling unattended security upgrades..."
-echo 'APT::Periodic::Update-Package-Lists "1";
-APT::Periodic::Unattended-Upgrade "1";
-APT::Periodic::AutocleanInterval "7";' > /etc/apt/apt.conf.d/20auto-upgrades
-
 # Configure fail2ban
 echo ""
 echo "🚫 Configuring fail2ban..."
@@ -88,14 +81,20 @@ systemctl start fail2ban
 # Configure UFW
 echo ""
 echo "🧱 Setting up firewall (UFW)..."
-ufw --force reset > /dev/null
-ufw allow 22/tcp comment 'SSH' > /dev/null
-ufw allow 80/tcp comment 'HTTP' > /dev/null
-ufw allow 443/tcp comment 'HTTPS' > /dev/null
-ufw default deny incoming > /dev/null
-ufw default allow outgoing > /dev/null
-echo "y" | ufw enable > /dev/null
-echo -e "${GREEN}✓ Firewall enabled. Allowed ports: 22, 80, 443${NC}"
+if ufw status | grep -q "^Status: active"; then
+    ufw allow 22/tcp comment 'SSH' > /dev/null
+    ufw allow 80/tcp comment 'HTTP' > /dev/null
+    ufw allow 443/tcp comment 'HTTPS' > /dev/null
+    echo -e "${GREEN}✓ UFW already active. Existing rules preserved.${NC}"
+else
+    ufw default deny incoming > /dev/null
+    ufw default allow outgoing > /dev/null
+    ufw allow 22/tcp comment 'SSH' > /dev/null
+    ufw allow 80/tcp comment 'HTTP' > /dev/null
+    ufw allow 443/tcp comment 'HTTPS' > /dev/null
+    ufw --force enable > /dev/null
+    echo -e "${GREEN}✓ Firewall enabled. Allowed ports: 22, 80, 443${NC}"
+fi
 
 # Summary
 echo ""
@@ -105,9 +104,9 @@ echo "=========================================="
 echo ""
 echo "Your server now has:"
 echo "  ✓ All packages updated"
-echo "  ✓ Automatic security updates enabled"
+echo "  ✓ Unattended upgrades installed (distro defaults)"
 echo "  ✓ Fail2ban protecting SSH"
-echo "  ✓ UFW firewall (ports 22, 80, 443 only)"
+echo "  ✓ UFW firewall active (existing rules preserved)"
 echo ""
 echo -e "${YELLOW}Note: If you need additional ports, run:${NC}"
 echo "  ufw allow <port>/tcp"
