@@ -206,9 +206,8 @@ code {
 
 .terminal-body {
     padding: 20px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
+    padding-right: 60px;
+    position: relative;
     overflow-x: auto;
 }
 
@@ -222,6 +221,10 @@ code {
 }
 
 .copy-btn {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
@@ -434,18 +437,19 @@ footer p {
     }
 
     .terminal-body {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
+        padding-right: 20px;
+        padding-bottom: 60px;
     }
 
     .terminal-body code {
         font-size: 0.85rem;
-        text-align: center;
     }
 
     .copy-btn {
-        align-self: center;
+        right: 50%;
+        top: auto;
+        bottom: 12px;
+        transform: translateX(50%);
     }
 
     .feature-grid {
