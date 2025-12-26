@@ -5,7 +5,7 @@ Basic security hardening for Ubuntu LTS and Debian Stable servers.
 ## Usage
 
 ```bash
-curl -sSL https://vpsarmor.com/armor.sh | sudo bash
+curl -sSL https://raw.githubusercontent.com/flegoff/vpsarmor/main/armor.sh | sudo bash
 ```
 
 ## What it does
